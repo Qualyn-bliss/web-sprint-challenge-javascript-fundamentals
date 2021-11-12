@@ -17,6 +17,7 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
+// the nestedFunction is a callback function of myFunction and that is why it can access the variable internal. 
 
 
 
@@ -27,12 +28,13 @@ myFunction();
     2. Use a counter to return the summation of that number. 
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
-
-function summation(/*Your Code Here*/) {
-  /*Your Code Here*/
-
-  }
- 
+function summation (number){
+//   let num = [1, 2, 3, 4, 5 ,6].reduce(function(num,item){
+//  for(let i = 0; i < number; i ++){
+//    return num + item;
+//  },0);
+}
+//  console.log(summation[4]);
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -55,21 +57,40 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
+ function animalNames(){}
+//    const displayNames = data.map((Element) => Element.animal_name === [])
 
-  function animalNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
-  
+//    return displayNames;
+//  }
 
+//  console.log('task 1', animalNames(zooAnimals));
+
+
+
+
+
+//   const displayNames = [];
+//   zooAnimals.forEach(function(item){
+//     displayNames.push(item.animal_name());
+//     displayNames.push(item.scientific_name());
+//   //  const displayNames = `name: ${this.animal_name}, scientific: ${this.scientific_name}`;
+//   //  console.log(displayNames(item.animal_name, item.scientific_name));
+//  });
+//  console.log(`name: ${this.animal_name}, scientific: ${this.scientific_name}`);
+
+
+ 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
   Using lowerCaseNames use .map() to create a new array of strings with the animal's names in lowercase and return the new array. 
   For example: ['jackal, asiatic', .....]
   */
 
-  function lowerCaseNames(/*Your Code Here*/){
-    /*Your Code Here*/
-  }
+  function lowerCaseNames(data){
+   return data.map(item =>  item.animal_name.toLowerCase());
+   }
+   console.log(lowerCaseNames(zooAnimals, 'animal_name') );
+  
   
   
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
@@ -77,8 +98,10 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(/*Your Code Here*/){
-    /*Your Code Here*/
+  function lowPopulationAnimals(data){
+    const lowPopulationAnimals = data.filter((element) => element.population < 5)
+
+    return lowPopulationAnimals;
   }
   
 
@@ -88,9 +111,13 @@ const zooAnimals = [
   Remember the reduce method takes two arguments: a callback (which itself takes two args - the accumulator and the item), and an initial value for the count.
   */
 
-  function USApop(/*Your Code Here*/){
-    /*Your Code Here*/
+  function USApop(data){
+    let populationTotal = data.reduce((accumulator, currentValue) =>{
+      return accumulator += currentValue
+    },0);
+    console.log(USApop(populationTotal(zooAnimals)));
   }
+  
   
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
@@ -101,9 +128,10 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
-  }
+  function consume(a, b, cb){
+    return cb(a*b);
+    }
+  
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
