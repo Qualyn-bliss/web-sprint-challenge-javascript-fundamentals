@@ -57,8 +57,19 @@ const zooAnimals = [
   Use animalNames to populate and return the displayNames array with only the animal name and scientific name of each animal. 
   displayNames will be an array of strings, and each string should follow this pattern: "name: {name}, scientific: {scientific name}"
   */
- function animalNames(){}
-//    const displayNames = data.map((Element) => Element.animal_name === [])
+
+ function animalNames (array){
+   const displayNames = [];
+    array.forEach(function(item){
+      displayNames.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`)
+    });
+    return displayNames;
+  }
+   console.log('task 1',animalNames(zooAnimals));
+
+
+
+//  zooAnimals.forEach(animalNames);  const displayNames = data.map((Element) => Element.animal_name === [])
 
 //    return displayNames;
 //  }
@@ -89,7 +100,7 @@ const zooAnimals = [
   function lowerCaseNames(data){
    return data.map(item =>  item.animal_name.toLowerCase());
    }
-   console.log(lowerCaseNames(zooAnimals, 'animal_name') );
+   console.log('task 2',lowerCaseNames(zooAnimals, 'animal_name') );
   
   
   
@@ -98,11 +109,23 @@ const zooAnimals = [
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
   */
 
-  function lowPopulationAnimals(data){
-    const lowPopulationAnimals = data.filter((element) => element.population < 5)
-
-    return lowPopulationAnimals;
+  function lowPopulationAnimals(array){
+    const lowPopulationCount = array.filter(function(item){
+      return item.population < 5;
+    });
+    return lowPopulationCount
   }
+  console.log('task 3', lowPopulationAnimals(zooAnimals));
+      
+      
+      
+      
+  //     (element) => element.population < 5);
+
+  //   return lowPopulationAnimals;
+  // }
+
+  // console.log('task 3', lowPopulationAnimals);
   
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
@@ -128,10 +151,8 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(a, b, cb){
-    return cb(a*b);
-    }
-  
+  function consume(){
+  }
  
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
@@ -167,8 +188,13 @@ function greeting(/*Your Code Here */){
 /* 🐴🐴🐴 Step 1: Base Constructor 🐴🐴🐴
  Use the constructor function named CuboidMaker to accept properties for length, width, and height which can be initialized as an object
 */
-function CuboidMaker(/*Your Code Here */){
-  /*Your Code Here */
+function CuboidMaker(length, width, height){
+ this.length = length;
+ this.width = width;
+ this.height = height;
+}
+CuboidMaker.prototype.length = function (){
+
 }
 
 
